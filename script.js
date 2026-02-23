@@ -1,94 +1,92 @@
-/* ═══════════════════════════════════════════
+/* ═══════════════════════════════════════════════════
    AKASHI PRODUCTS — Hopper Recipe
    script.js
-   ═══════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════ */
 
-/* ─────────────────────────────────────────
-   LANGUAGE SWITCHER
-───────────────────────────────────────── */
+/* ── Header: darken on scroll ───────────────────── */
+const header = document.querySelector('.site-header');
+
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+
+/* ── Language switcher ──────────────────────────── */
 const langBtns = document.querySelectorAll('.lang-btn');
 
 function switchLang(lang) {
-  /* Hide all language sections */
-  document.querySelectorAll('.lang-section').forEach(section => {
-    section.classList.remove('visible');
-  });
+  /* Hide all sections */
+  document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('visible'));
 
-  /* Show the selected section */
+  /* Pause every video in now-hidden sections */
+  document.querySelectorAll('.step-video').forEach(v => { v.pause(); v.currentTime = 0; });
+
+  /* Show target */
   const target = document.getElementById('lang-' + lang);
   if (target) {
     target.classList.add('visible');
-    /* Trigger scroll-reveal for newly visible steps */
-    setTimeout(revealSteps, 60);
+    /* Re-run observers for new content */
+    setTimeout(observeNewElements, 60);
   }
 
-  /* Update active button */
-  langBtns.forEach(btn => btn.classList.remove('active'));
-  const btnIndex = { si: 0, ta: 1, en: 2 };
-  if (btnIndex[lang] !== undefined) {
-    langBtns[btnIndex[lang]].classList.add('active');
-  }
+  /* Update button states */
+  langBtns.forEach(b => b.classList.remove('active'));
+  const idx = { si: 0, ta: 1, en: 2 };
+  if (idx[lang] !== undefined) langBtns[idx[lang]].classList.add('active');
 }
 
-/* ─────────────────────────────────────────
-   SCROLL REVEAL
-───────────────────────────────────────── */
-function revealSteps() {
-  const steps = document.querySelectorAll('.lang-section.visible .step');
-  steps.forEach((step, i) => {
-    if (step.getBoundingClientRect().top < window.innerHeight - 40) {
-      step.style.transitionDelay = (i * 0.09) + 's';
-      step.classList.add('revealed');
-    }
+
+/* ── IntersectionObserver: step + section reveals ─ */
+let stepObserver, headerObserver;
+
+function buildObservers() {
+  /* Step cards */
+  stepObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        /* Auto-play video inside this step if present */
+        const video = entry.target.querySelector('.step-video');
+        if (video) {
+          video.play().catch(() => {
+            /* Autoplay blocked — mute and retry (browser policy) */
+            video.muted = true;
+            video.play();
+          });
+        }
+        stepObserver.unobserve(entry.target); /* fire once */
+      }
+    });
+  }, {
+    threshold: 0.22,   /* trigger when 22% visible */
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  /* Section headers */
+  headerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        headerObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+}
+
+function observeNewElements() {
+  /* Observe all visible steps not yet triggered */
+  document.querySelectorAll('.lang-section.visible .step:not(.in-view)').forEach(el => {
+    stepObserver.observe(el);
+  });
+
+  /* Observe section headers */
+  document.querySelectorAll('.lang-section.visible .section-header:not(.in-view)').forEach(el => {
+    headerObserver.observe(el);
   });
 }
 
-window.addEventListener('scroll', revealSteps, { passive: true });
-window.addEventListener('load', () => setTimeout(revealSteps, 400));
-
-/* ─────────────────────────────────────────
-   VIDEO TOGGLE  (collapsible — local video.mp4)
-───────────────────────────────────────── */
-function toggleVideo(cardId) {
-  const card     = document.getElementById(cardId);
-  const embedDiv = card.querySelector('.video-embed');
-  const isOpen   = card.classList.contains('open');
-
-  if (isOpen) {
-    /* Collapse: stop & remove the video element */
-    const vid = embedDiv.querySelector('video');
-    if (vid) { vid.pause(); vid.src = ''; }
-    card.classList.remove('open');
-    embedDiv.innerHTML = '';
-  } else {
-    /* Expand: inject a <video> pointing at the local file */
-    card.classList.add('open');
-    embedDiv.innerHTML = `
-      <video
-        src="video.mp4"
-        controls
-        autoplay
-        playsinline>
-        Your browser does not support the video tag.
-      </video>`;
-  }
-}
-
-/* ─────────────────────────────────────────
-   SPLASH PARALLAX FADE
-───────────────────────────────────────── */
-const splash = document.querySelector('.splash');
-let ticking  = false;
-
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      const y = window.scrollY;
-      if (splash) {
-        splash.style.opacity = Math.max(0, 1 - y / 480);
-      }
-      ticking = false;
-    });
-    ticking = true;
-  }
-}, { passive: true });
+/* ── Boot ───────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  buildObservers();
+  observeNewElements();
+});
