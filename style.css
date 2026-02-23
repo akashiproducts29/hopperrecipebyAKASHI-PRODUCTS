@@ -56,7 +56,7 @@ body::before {
 .site-header {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 500;
-  height: 60px;
+  height: 90px;
   display: flex; align-items: center;
   justify-content: space-between;
   padding: 0 20px;
@@ -73,7 +73,7 @@ body::before {
 }
 
 .header-logo img {
-  height: 36px;
+  height: 90px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 10px rgba(255, 222, 0, 0.3));
@@ -196,7 +196,7 @@ body::before {
 }
 
 .splash-logo {
-  width: 600px; height: 600px;
+  width: 110px; height: 110px;
   object-fit: contain;
   filter: drop-shadow(0 0 32px rgba(255,222,0,0.28));
   position: relative; z-index: 1;
@@ -204,7 +204,7 @@ body::before {
 
 .splash-ring {
   position: absolute; inset: 0;
-  border-radius: 50%;
+  border-radius: 10px;
   border: 1px solid rgba(255,222,0,0.18);
   animation: rotateSlow 14s linear infinite;
 }
