@@ -196,7 +196,7 @@ body::before {
 }
 
 .splash-logo {
-  width: 220px; height: 220px;
+  width: 600px; height: 600px;
   object-fit: contain;
   filter: drop-shadow(0 0 32px rgba(255,222,0,0.28));
   position: relative; z-index: 1;
