@@ -51,11 +51,18 @@ body::before {
 }
 
 .loader-mark {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1.6rem, 6vw, 2.4rem);
-  letter-spacing: 0.4em;
-  color: var(--yellow);
-  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(82vw, 420px);
+  opacity: 0.95;
+}
+
+.loader-mark img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .loader.is-hidden { pointer-events: none; }
@@ -147,13 +154,19 @@ body::before {
   z-index: 1;
 }
 
-.hero-mask-logo {
+.hero-logo {
   position: relative; z-index: 2;
-  width: min(88vw, 700px);
+  width: min(78vw, 680px);
+  max-width: 680px;
   height: auto;
+  display: block;
+  margin: 0 auto;
   will-change: transform, opacity;
   backface-visibility: hidden;
-  transform-origin: center center;
+}
+
+.hero-mask-logo {
+  display: none;
 }
 
 .hero-caption {
