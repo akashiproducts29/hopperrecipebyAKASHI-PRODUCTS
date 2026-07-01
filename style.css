@@ -131,18 +131,11 @@ body::before {
 ══════════════════════════════════════════════════ */
 .splash {
   position: relative; z-index: 2;
-  min-height: 420px;
   height: auto;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   overflow: hidden;
-  padding: 70px 16px 60px;
-}
-
-@media (min-width: 768px) {
-  .splash {
-    min-height: 60svh;
-  }
+  padding: 90px 16px 70px;
 }
 
 /* Animated bracket corners */
