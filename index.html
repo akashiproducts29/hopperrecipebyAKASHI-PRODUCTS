@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>ආප්ප සාදන ආකාරය | Akashi Products</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+Sinhala:wght@300;400;600;700&family=Noto+Sans+Tamil:wght@300;400;600;700&family=Barlow+Condensed:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+
+  <!-- ══════════ LOADER ══════════ -->
+  <div class="loader" id="loader">
+    <div class="loader-mark">AKASHI</div>
+  </div>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="site-header">
+    <div class="header-logo">
+      <img src="/AKASHI.png" alt="Akashi Products" onerror="this.style.opacity='0.35'">
+    </div>
+
+    <nav class="lang-switcher" aria-label="Language">
+      <button class="lang-btn active" data-lang="si" aria-label="සිංහල">
+        <span class="btn-bg"></span><span class="btn-label">සිංහල</span>
+      </button>
+      <button class="lang-btn" data-lang="ta" aria-label="Tamil">
+        <span class="btn-bg"></span><span class="btn-label">தமிழ்</span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <span class="btn-bg"></span><span class="btn-label">English</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ══════════ HERO SEQUENCE (pinned) ══════════ -->
+  <section class="hero-sequence" id="hero-sequence">
+    <div class="hero-pin">
+
+      <video class="hero-bg-video" src="/video1.mp4" muted loop autoplay playsinline preload="none"></video>
+      <div class="hero-scrim"></div>
+
+      <svg class="hero-mask-logo" viewBox="0 0 800 300" aria-hidden="true">
+        <defs>
+          <mask id="logoMask">
+            <rect width="100%" height="100%" fill="black"/>
+            <text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle"
+                  font-family="Bebas Neue" font-size="140" fill="white" letter-spacing="8">AKASHI</text>
+          </mask>
+        </defs>
+        <rect width="100%" height="100%" fill="var(--bg)" mask="url(#logoMask)"/>
+      </svg>
+
+      <div class="hero-caption">
+        <p class="hero-eyebrow">Akashi Products &nbsp;·&nbsp; Authentic Recipe</p>
+        <p class="hero-tagline">Traditional Sri Lankan Hopper Recipe</p>
+      </div>
+
+      <div class="hero-scroll-cue" aria-hidden="true">
+        <svg viewBox="0 0 24 24" class="hero-arrow"><path d="M12 4v14M6 12l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MAIN CONTENT ══════════ -->
+  <div class="content-wrapper" id="content-wrapper">
+    <main class="content">
+
+      <section id="lang-si" class="lang-section visible" lang="si">
+        <div class="section-header">
+          <p class="section-header-label">Recipe Guide</p>
+          <h1 class="section-header-title">ආප්ප සාදන ආකාරය</h1>
+        </div>
+
+        <article class="step">
+          <div class="step-inner">
+            <div class="step-ghost" aria-hidden="true">01</div>
+            <div class="step-accent"></div>
+            <div class="step-meta"><span class="step-num">STEP 01</span><div class="step-meta-line"></div></div>
+            <div class="step-body">
+              <h2 class="step-title">පිටි මිශ්‍රණය සකස් කර ගැනීම</h2>
+              <p class="step-text">
+                මුලින්ම ලොකු භාජනයක් අරගෙන ඒකට තෙත හාල්පිටි ටික දාන්න.
+                ඒ හාල්පිටි වලට සීනි තේ හැඳි 1ක් සහ පාන් පිටි මේස හැඳි 1ක්
+                එකතු කරලා හොඳින් මිශ්‍ර කරන්න. දැන් පොල් ගෙඩියක වතුර ටිකක්
+                පෙරාගෙන ඒකෙන් ටික ටික පිටි මිශ්‍රණයට දමමින් අනාගන්න.
+              </p>
+              <div class="step-note">
+                💡 මතක තබා ගන්න: මිශ්‍රණය ගොඩක් දියාරු වෙන්න දෙන්න එපා.
+                ඝන පිටි මිශ්‍රණයක් විදිහට සාදාගන්න.
+              </div>
+            </div>
+            <div class="video-section">
+              <div class="video-overlay" aria-hidden="true">
+                <div class="video-dot"></div>
+                <span class="video-overlay-label">Video Reference</span>
+                <span class="video-overlay-title">පිටි මිශ්‍රණයේ පදම</span>
+              </div>
+              <video class="step-video" src="/video1.mp4" muted loop playsinline preload="none"></video>
+            </div>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-inner">
+            <div class="step-ghost" aria-hidden="true">02</div>
+            <div class="step-accent"></div>
+            <div class="step-meta"><span class="step-num">STEP 02</span><div class="step-meta-line"></div></div>
+            <div class="step-body">
+              <h2 class="step-title">මිශ්‍රණය පිපෙන්නට තැබීම</h2>
+              <p class="step-text">
+                සකස් කරගත් ඝන පිටි මිශ්‍රණය භාජනයකින් හොඳින් වසා
+                පැය 7–8ක් පමණ තබන්න. පැය 8කට විතර පස්සේ භාජනය ඇරලා
+                බලන්න. එහි කුඩා බුබුළු දකින්න ලැබෙනවා නම්, පිටි මිශ්‍රණය
+                හොඳින් පිපී තිබෙනවා.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-inner">
+            <div class="step-ghost" aria-hidden="true">03</div>
+            <div class="step-accent"></div>
+            <div class="step-meta"><span class="step-num">STEP 03</span><div class="step-meta-line"></div></div>
+            <div class="step-body">
+              <h2 class="step-title">කිරි එකතු කර දිය කර ගැනීම</h2>
+              <p class="step-text">
+                දැන් මේ පිපුණු පිටි මිශ්‍රණයට පොල් ගෙඩියක උකු කිරි ටික ටික
+                දමමින් දිය කරගන්න. මෙය උකුවට වැක්කෙරෙන ප්‍රමාණයට දිය කරගත
+                යුතුයි. එසේ දිය කරගත් පසු නැවතත් පැයක් පමණ වසා තබන්න.
+                පැයකට පසු, ඔබේ රස අනුව ලුණු ස්වල්පයක් එකතු කරගන්න.
+              </p>
+            </div>
+            <div class="video-section">
+              <div class="video-overlay" aria-hidden="true">
+                <div class="video-dot"></div>
+                <span class="video-overlay-label">Video Reference</span>
+                <span class="video-overlay-title">මිශ්‍රණයේ දියාරු බව</span>
+              </div>
+              <video class="step-video" src="/video2.mp4" muted loop playsinline preload="none"></video>
+            </div>
+          </div>
+        </article>
+
+        <article class="step">
+          <div class="step-inner">
+            <div class="step-ghost" aria-hidden="true">04</div>
+            <div class="step-accent"></div>
+            <div class="step-meta"><span class="step-num">STEP 04</span><div class="step-meta-line"></div></div>
+            <div class="step-body">
+              <h2 class="step-title">ආප්ප පිස ගැනීම</h2>
+              <p class="step-text">
+                පීරිසියකට පොල්තෙල් ස්වල්පයක් දමාගන්න. Basting Brush එකක් හෝ
+                පිරිසිදු රෙදි කැබැල්ලක් භාවිතයෙන් ආප්ප තාච්චියේ ඇතුළත තෙල්
+                තවරා රත් වෙන්නට තබන්න. තාච්චිය හොඳින් රත් වූ පසු, ආප්ප
+                මිශ්‍රණය හොඳින් කලවම් කර ඉන් ස්වල්පයක් තාච්චියට වත් කරන්න.
+                දැන් තාච්චිය අතට ගෙන වටයක් කරකවන්න. නැවත තාච්චිය ලිපෙන් තබා
+                පියනකින් වසා තබන්න. විනාඩි 1½ ක් පමණ ගිය පසු ආප්පය හොඳින්
+                පිච්චී ඇති විට ලිපෙන් බාගන්න.
+              </p>
+            </div>
+            <div class="video-section">
+              <div class="video-overlay" aria-hidden="true">
+                <div class="video-dot"></div>
+                <span class="video-overlay-label">Video Reference</span>
+                <span class="video-overlay-title">ආප්පය කරකවන ආකාරය</span>
+              </div>
+              <video class="step-video" src="/video3.mp4" muted loop playsinline preload="none"></video>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="lang-ta" class="lang-section" lang="ta">
+        <div class="section-header">
+          <p class="section-header-label">Recipe Guide</p>
+          <h1 class="section-header-title" style="font-family:'Noto Sans Tamil',sans-serif;font-size:1.8rem;font-weight:700;">செய்முறை வழிகாட்டி</h1>
+        </div>
+        <div class="coming-soon">
+          <p class="coming-soon-title">Coming Soon</p>
+          <p class="coming-soon-sub" style="font-family:'Noto Sans Tamil',sans-serif;">தமிழ் உள்ளடக்கம் விரைவில் வரும்</p>
+        </div>
+      </section>
+
+      <section id="lang-en" class="lang-section" lang="en">
+        <div class="section-header">
+          <p class="section-header-label">Recipe Guide</p>
+          <h1 class="section-header-title">How to Make Hoppers</h1>
+        </div>
+        <div class="coming-soon">
+          <p class="coming-soon-title">Coming Soon</p>
+          <p class="coming-soon-sub">English content will be available shortly.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <img class="footer-logo" src="/AKASHI.png" alt="Akashi Products" onerror="this.style.opacity='0.25'">
+      <p class="footer-text">
+        <span class="hl">Akashi Products (Pvt) Limited</span><br>
+        Authentic Sri Lankan <span class="hl">ආප්ප</span> Recipe
+      </p>
+    </footer>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
